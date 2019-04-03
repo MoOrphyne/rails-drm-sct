@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Drm-Sct</a>
+  <%= link_to 'Drm-Sct', root_path, class: 'logo-navbar' %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -15,5 +15,14 @@
         <a class="nav-link" href="#">Pricing</a>
       </li>
     </ul>
+  </div>
+  <div class="right-nav">
+    <% if current_user %>
+      <%= link_to 'Dashboard', edit_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link") %>
+    <% else %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to('Register', new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link")  %>
+    <% end %>
   </div>
 </nav>

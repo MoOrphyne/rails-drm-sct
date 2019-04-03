@@ -10,3 +10,32 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-wagon-item {
+  cursor: pointer;
+  padding: 0 20px;
+}
+
+.navbar-wagon-link {
+  color: #616668;
+  font-size: 14px;
+}
+.navbar-wagon-link:hover {
+  color: #da552f;
+  text-decoration: none;
+}
+
+.navbar-collapse {
+  border-left: 1px solid rgba(30, 30, 30, 0.1)
+}
+
+.logo-navbar {
+  padding-right: 7px;
+  font-size: 18px;
+  font-weight: 400;
+  color: rgb(55, 60, 67);
+  &:hover {
+    color: rgb(55, 60, 67);
+    text-decoration: none;
+  }
+}
