@@ -1,0 +1,12 @@
+.main-btn {
+  background-color: rgb(246, 79, 100);
+  padding: 15px 35px;
+  border-radius: 5px;
+  font-weight: bolder;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  &:hover {
+    color: white;
+  }
+}

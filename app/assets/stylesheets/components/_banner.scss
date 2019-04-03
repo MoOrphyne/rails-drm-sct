@@ -1,0 +1,16 @@
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 450px;
+  background-color: rgb(62, 69, 98);
+  color: rgb(255, 255, 255);
+}
+
+.banner-content {
+  text-align: center;
+  p {
+    font-weight: lighter;
+    margin-bottom: 40px;
+  }
+}
