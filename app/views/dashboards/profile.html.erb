@@ -19,7 +19,7 @@
     <h2>My Packs</h2>
 
     <div class="row">
-      <% @user.pack.each do |pack| %>
+      <% @user.packs.each do |pack| %>
         <div class="col-xs-12 col-sm-4">
           <%#= link_to cocktail_path(cocktail) do  %>
             <div class="card grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=pack.photo_url%>);">
