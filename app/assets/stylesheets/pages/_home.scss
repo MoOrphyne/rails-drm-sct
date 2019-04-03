@@ -1,1 +1,25 @@
-// Specific CSS for your home-page
+.value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(55, 60, 67);
+  height: 400px;
+}
+
+.value-content {
+  text-align: center;
+  h2 {
+    font-size: 40px;
+    margin-bottom: 2rem;
+  }
+  p {
+    line-height: 28px;
+    font-weight: 500;
+  }
+}
+
+.align-items-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
