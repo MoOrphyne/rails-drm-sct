@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="user-info">
+    <img src="https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwj34ZbBxLThAhUSx4UKHespAvYQjRx6BAgBEAU&url=https%3A%2F%2Ffr.wikipedia.org%2Fwiki%2FFichier%3AUser_Avatar_2.png&psig=AOvVaw1ZtM8UuOY9gCpRRU7HTXzy&ust=1554401914607241" alt="">
+
+    <div class="user-details">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Username:</li>
+        <li class="list-group-item">Email: <%= @user.email %></li>
+        <% if @user.subscriber %>
+          <li class="list-group-item">Current subscribtion: Active</li>
+        <% else %>
+          <li class="list-group-item">Current subscribtion: Inactive</li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="my-packs">
+    <h2>My Packs</h2>
+
+    <div class="row">
+      <% @user.pack.each do |pack| %>
+        <div class="col-xs-12 col-sm-4">
+          <%#= link_to cocktail_path(cocktail) do  %>
+            <div class="card grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=pack.photo_url%>);">
+              <div class="card-category"><%= pack.title %></div>
+              <div class="card-description">
+                <p><%= pack.description.chars.first(50).join('') %></p>
+              </div>
+            </div>
+          <%# end %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  get '/profile', to: 'dashboards#profile'
+
+  resources :packs, only: [:index, :show, :new, :create]
   resources :subscriptions, only: [:new, :create]
   devise_for :users
   root to: 'pages#home'
