@@ -25,12 +25,10 @@
     </div>
   </div>
 
-  <div class="my-packs">
-    <h2>My Packs</h2>
-    <br>
+  <div class="container">
     <div class="row">
       <% @packs.each do |pack| %>
-        <div class="col-xs-12 col-sm-3">
+        <div class="col-md-3">
           <%= link_to pack_path(pack) do  %>
             <div class="pack-card grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=pack.photo_url%>);">
               <div class="pack-card-category"><%= pack.title %></div>
