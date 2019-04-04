@@ -12,7 +12,7 @@
     <div class="col-sm-6">
       <div class="user-details">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Username:</li>
+          <li class="list-group-item">Username: <%= @user.username %></li>
           <li class="list-group-item">Email: <%= @user.email %></li>
           <% if @user.subscriber %>
             <li class="list-group-item">Current subscribtion: Active</li>
