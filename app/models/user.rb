@@ -5,4 +5,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def to_subscriber
+    self.subscriber = true
+    @user_pack = UserPack.create(user_id: self.id, pack_id: Pack.last.id)
+    self.save
+  end
 end

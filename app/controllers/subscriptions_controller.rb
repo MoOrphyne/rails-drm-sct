@@ -19,9 +19,8 @@ class SubscriptionsController < ApplicationController
       plan: 'plan_EopqywkUr0PMSQ',
     })
     # @order.update(payment: charge.to_json, state: 'paid')
-    current_user.subscriber = true
-    current_user.save
-    redirect_to root_path
+    current_user.to_subscriber
+    redirect_to profile_path
 
   rescue Stripe::CardError => e
     flash[:alert] = e.message

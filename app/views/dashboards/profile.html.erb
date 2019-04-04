@@ -21,14 +21,14 @@
     <div class="row">
       <% @user.packs.each do |pack| %>
         <div class="col-xs-12 col-sm-4">
-          <%#= link_to cocktail_path(cocktail) do  %>
+          <%= link_to pack_path(pack) do  %>
             <div class="pack-card grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=pack.photo_url%>);">
               <div class="pack-card-category"><%= pack.title %></div>
               <div class="pack-card-description">
                 <p><%= pack.description.chars.first(50).join('') %></p>
               </div>
             </div>
-          <%# end %>
+          <% end %>
         </div>
       <% end %>
     </div>
