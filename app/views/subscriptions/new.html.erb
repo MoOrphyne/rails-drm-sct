@@ -1,36 +1,38 @@
-
 <div class="container">
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Pricing</h1>
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore aliquam vero aperiam doloribus at quasi sed deleniti corporis consequuntur ipsum earum.</p>
+  </div>
 
-  <div class="subscription-wrapper">
-    <div class="subscription-description">
-      <h2>Premium Pack</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum minus in a dolor placeat veniam nemo at perspiciatis. Excepturi temporibus rem, animi est vero aliquam sunt voluptatem harum nemo ipsum.</p>
-    </div>
 
-    <div class="subscription-info">
+  <div class="row">
+    <div class="col-sm-6 offset-md-3">
       <%= form_tag subscriptions_path :method => :post do %>
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Premium Pack</h5>
-            <span>10€ / Month</span>
-            <p class="card-text">Be part of the drum society</p>
+        <div class="card-deck mb-3 text-center">
+          <div class="card mb-4 box-shadow">
+            <div class="card-header">
+              <h4 class="my-0 font-weight-normal">Gold</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title">10€ <small class="text-muted">/ mo</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>New Packs Every Month</li>
+                <li>2 GB of storage</li>
+                <li>Email support</li>
+                <li>Help center access</li>
+              </ul>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-name="My Subscription"
+                data-email="<%= current_user.email %>"
+                data-description="Drm-Sct Subscription"
+                data-amount="1000"
+                data-currency="EUR">
+              </script>
+            </div>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><i class="fas fa-check"></i>new samples every month</li>
-            <li class="list-group-item"><i class="fas fa-check"></i>value 2</li>
-            <li class="list-group-item"><i class="fas fa-check"></i>value 3</li>
-          </ul>
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-name="My Subscription"
-          data-email="<%= current_user.email %>"
-          data-description="Drm-Sct Subscription"
-          data-amount="1000"
-          data-currency="EUR">
-        </script>
         </div>
       <% end %>
     </div>
   </div>
-
 </div>
