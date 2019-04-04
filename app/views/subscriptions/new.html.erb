@@ -23,9 +23,9 @@
               </ul>
               <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                data-name="My Subscription"
+                data-name="Gold Subscription"
                 data-email="<%= current_user.email %>"
-                data-description="Drm-Sct Subscription"
+                data-description="10€/Month"
                 data-amount="1000"
                 data-currency="EUR">
               </script>
