@@ -1,67 +1,82 @@
-<div class="banner">
-  <div class="banner-content">
-    <h1>Drm Sct</h1>
-    <p> My awesome tagline</p>
-    <%= link_to 'Join Now', new_subscription_path, class: 'main-btn' %>
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Drum Society</h1>
+    <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+    <p>
+      <%= link_to 'Join the Drum Society', new_subscription_path, class: 'btn btn-primary my-2' %>
+    </p>
     <p class="slots"><%= @slots %> Slots availables</p>
   </div>
-</div>
+</section>
 
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
 
-<div class="value">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
-        <div class="value-content">
-          <h2>Lorem ipsum dolor sit amet</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut iusto, molestias officia delectus nam, numquam similique neque accusantium debitis fuga quaerat rem quidem illum. Similique sit qui autem aliquam commodi, minima fuga provident numquam ut, placeat dolor consequuntur vitae. Iusto illum amet aliquid eveniet harum molestiae impedit, perspiciatis libero deserunt. Dolore sunt velit, placeat. Voluptatem iste, voluptas. Assumenda a sequi cupiditate, repellendus consequatur impedit sunt dolore.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="container marketing">
 
-<div class="features">
-  <div class="container">
+  <div class="recent-products-container">
+    <h2 class="recent-products-heading">Recent Products</h2>
     <div class="row">
-      <div class="col-xs-12 col-md-4">
-        <div class="feature">
-          <i class="fas fa-check-circle"></i>
-          <h2>Feature 1</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt molestiae odit cum quia similique quod laudantium beatae vel.</p>
+      <% @last_packs.each do |pack| %>
+        <div class="col-xs-12 col-sm-3">
+          <%= link_to pack_path(pack) do  %>
+            <div class="pack-card grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=pack.photo_url%>);">
+              <div class="pack-card-category"><%= pack.title %></div>
+              <div class="pack-card-description">
+                <p><%= pack.description.chars.first(50).join('') %></p>
+              </div>
+            </div>
+          <% end %>
         </div>
-      </div>
-      <div class="col-xs-12 col-md-4">
-        <div class="feature">
-          <i class="fas fa-globe-americas"></i>
-          <h2>Feature 2</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt molestiae odit cum quia similique quod laudantium beatae vel.</p>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-4">
-        <div class="feature">
-          <i class="fas fa-play-circle"></i>
-          <h2>Feature 3</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt molestiae odit cum quia similique quod laudantium beatae vel.</p>
-        </div>
-      </div>
-    </div>
+      <% end %>
+    </div><!-- /.row -->
   </div>
-</div>
 
-<div class="testimonials">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-6">
-        <img src="https://splice-res.cloudinary.com/image/upload/f_auto,q_auto,w_360,dpr_2.0/v1534158617/marketing_site/home/2018-08/featuresHome-testimonial_04_2x.png" alt="">
-      </div>
-      <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-6">
-        <h2>Lorem ipsum dolor sit amet</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut iusto, molestias officia delectus nam, numquam similique neque accusantium debitis fuga quaerat rem quidem illum.</p>
-      </div>
+
+  <!-- START THE FEATURETTES -->
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette align-items-center">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+    <div class="col-md-5">
+      <img src="https://picsum.photos/500/500/?random" class="featurette-image img-fluid mx-auto" alt="Generic placeholder image">
     </div>
   </div>
-</div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette align-items-center">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <img src="https://picsum.photos/500/500/?random" class="featurette-image img-fluid mx-auto" alt="Generic placeholder image">
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette align-items-center">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+    <div class="col-md-5">
+      <img src="https://picsum.photos/500/500/?random" class="featurette-image img-fluid mx-auto" alt="Generic placeholder image">
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <!-- /END THE FEATURETTES -->
+
+</div><!-- /.container -->
 
 <div class="footer">
   <div class="container">
