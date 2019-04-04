@@ -3,7 +3,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def create
-    if User.all.count <= 500
+    if User.where(subscriber: true).count <= 500
       subscribe
     else
       redirect_to root_path
