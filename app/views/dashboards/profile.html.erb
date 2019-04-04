@@ -5,7 +5,7 @@
         <% if @user.photo.file.nil?%>
           <%= image_tag "avatar-baf.png", height: 120, width: 120 %>
         <% else %>
-          <%= cl_image_tag @user.photo, height: 120, width: 120, crop: :fill, class: "img-circle" %>
+          <%= cl_image_tag @user.photo, height: 120, width: 120, crop: :fill, class: "user-picture" %>
         <% end %>
       </div>
     </div>
@@ -19,6 +19,7 @@
           <% else %>
             <li class="list-group-item">Current subscribtion: Inactive</li>
           <% end %>
+          <li class="list-group-item"><%= link_to 'Edit Profile', edit_user_registration_path %></li>
         </ul>
       </div>
     </div>
