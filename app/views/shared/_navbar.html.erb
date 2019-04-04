@@ -1,25 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to 'Drm-Sct', root_path, class: 'logo-navbar' %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <%= link_to 'Pricing', new_subscription_path, class: 'navbar-wagon-item navbar-wagon-link' %>
-      </li>
-    </ul>
-  </div>
-  <div class="right-nav">
-    <% if current_user %>
-      <% if current_user.admin %>
-        <%= link_to 'Admin', admin_path, class: "navbar-wagon-item navbar-wagon-link"  %>
+<div class="navbar navbar-dark bg-dark box-shadow">
+  <div class="container d-flex justify-content-between">
+    <%= link_to 'Drum Society', root_path, class: 'navbar-brand d-flex align-items-center' %>
+    <div class="right-nav">
+      <% if current_user %>
+        <% if current_user.admin %>
+          <%= link_to 'Admin', admin_path, class: "navbar-wagon-item navbar-wagon-link"  %>
+        <% end %>
+        <%= link_to 'Dashboard', profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link") %>
+      <% else %>
+        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to('Register', new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link")  %>
       <% end %>
-      <%= link_to 'Dashboard', profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link") %>
-    <% else %>
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to('Register', new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link")  %>
-    <% end %>
+    </div>
   </div>
-</nav>
+</div>
