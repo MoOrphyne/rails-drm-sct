@@ -17,6 +17,7 @@ class PacksController < ApplicationController
     @users.each do |user|
       @user_pack = UserPack.create(user_id: user.id, pack_id: @pack.id)
     end
+    redirect_to '/admin'
   end
 
   private

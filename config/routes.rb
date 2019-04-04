@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get '/profile', to: 'dashboards#profile'
+  get '/admin', to: 'dashboards#admin'
 
   resources :packs, only: [:index, :show, :new, :create]
   resources :subscriptions, only: [:new, :create]

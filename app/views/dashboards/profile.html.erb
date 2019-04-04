@@ -1,26 +1,35 @@
 <div class="container">
-  <div class="user-info">
-    <img src="https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwj34ZbBxLThAhUSx4UKHespAvYQjRx6BAgBEAU&url=https%3A%2F%2Ffr.wikipedia.org%2Fwiki%2FFichier%3AUser_Avatar_2.png&psig=AOvVaw1ZtM8UuOY9gCpRRU7HTXzy&ust=1554401914607241" alt="">
-
-    <div class="user-details">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Username:</li>
-        <li class="list-group-item">Email: <%= @user.email %></li>
-        <% if @user.subscriber %>
-          <li class="list-group-item">Current subscribtion: Active</li>
+  <div class="row user-infos">
+    <div class="col-sm-6">
+      <div class="user-avatar">
+        <% if @user.photo.file.nil?%>
+          <%= image_tag "avatar-baf.png", height: 120, width: 120 %>
         <% else %>
-          <li class="list-group-item">Current subscribtion: Inactive</li>
+          <%= cl_image_tag @user.photo, height: 120, width: 120, crop: :fill, class: "img-circle" %>
         <% end %>
-      </ul>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="user-details">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Username:</li>
+          <li class="list-group-item">Email: <%= @user.email %></li>
+          <% if @user.subscriber %>
+            <li class="list-group-item">Current subscribtion: Active</li>
+          <% else %>
+            <li class="list-group-item">Current subscribtion: Inactive</li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 
   <div class="my-packs">
     <h2>My Packs</h2>
-
+    <br>
     <div class="row">
       <% @user.packs.each do |pack| %>
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-xs-12 col-sm-3">
           <%= link_to pack_path(pack) do  %>
             <div class="pack-card grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=pack.photo_url%>);">
               <div class="pack-card-category"><%= pack.title %></div>
@@ -32,6 +41,6 @@
         </div>
       <% end %>
     </div>
-
   </div>
+
 </div>
