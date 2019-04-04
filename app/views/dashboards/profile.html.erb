@@ -28,7 +28,7 @@
     <h2>My Packs</h2>
     <br>
     <div class="row">
-      <% @user.packs.each do |pack| %>
+      <% @packs.each do |pack| %>
         <div class="col-xs-12 col-sm-3">
           <%= link_to pack_path(pack) do  %>
             <div class="pack-card grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=pack.photo_url%>);">
