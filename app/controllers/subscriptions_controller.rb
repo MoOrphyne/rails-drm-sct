@@ -3,6 +3,16 @@ class SubscriptionsController < ApplicationController
   end
 
   def create
+    if User.all.count <= 500
+      subscribe
+    else
+      redirect_to root_path
+    end
+  end
+
+  private
+
+  def subscribe
     if current_user.stripe_id
       customer = Stripe::Customer.retrieve(current_user.stripe_id)
     else
