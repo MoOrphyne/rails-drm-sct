@@ -6,7 +6,7 @@
         <% if current_user.admin %>
           <%= link_to 'Admin', admin_path, class: "navbar-wagon-item navbar-wagon-link"  %>
         <% end %>
-        <a class="navbar-wagon-item navbar-wagon-link" href="#">Shop</a>
+        <%= link_to 'Shop', packs_path, class: 'navbar-wagon-item navbar-wagon-link' %>
         <%= link_to 'Dashboard', profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link") %>
       <% else %>

@@ -1,5 +1,6 @@
 class PacksController < ApplicationController
   def index
+    @packs = Pack.order('created_at DESC')
   end
 
   def show
@@ -23,6 +24,6 @@ class PacksController < ApplicationController
   private
 
   def pack_params
-    params.require(:pack).permit(:title, :description, :photo)
+    params.require(:pack).permit(:title, :description, :photo, :price)
   end
 end
