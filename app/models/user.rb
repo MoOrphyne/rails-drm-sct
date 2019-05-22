@@ -9,11 +9,25 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
+  after_create :send_welcome_email
+
   def to_subscriber
     self.subscriber = true
     Pack.last(3).each do |pack|
       UserPack.create(user_id: self.id, pack_id: pack.id)
     end
     self.save
+    send_subscribe_email
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome.deliver_now
+  end
+
+  def send_subscribe_email
+    UserMailer.with(user: self).subscription.deliver_now
   end
 end
