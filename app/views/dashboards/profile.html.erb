@@ -15,7 +15,7 @@
           <li class="list-group-item">Username: <%= @user.username %></li>
           <li class="list-group-item">Email: <%= @user.email %></li>
           <% if @user.subscriber %>
-            <li class="list-group-item">Current subscribtion: Active</li>
+            <li class="list-group-item">Current subscribtion: Active <%= link_to 'Cancel', unsubscribe_path, :method => :delete  %></li>
           <% else %>
             <li class="list-group-item">Current subscribtion: Inactive</li>
           <% end %>

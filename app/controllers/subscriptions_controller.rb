@@ -10,6 +10,18 @@ class SubscriptionsController < ApplicationController
     end
   end
 
+  def unsubscribe
+    @subscriber = Stripe::Customer.retrieve(current_user.stripe_id)
+    @subscription = @subscriber.subscriptions.data[0].id
+
+    Stripe::Subscription.update(
+      @subscription,
+      {
+        cancel_at_period_end: true,
+      }
+    )
+  end
+
   private
 
   def subscribe
