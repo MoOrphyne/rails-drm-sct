@@ -7,4 +7,8 @@ class Pack < ApplicationRecord
   validates :title, presence: true
   validates :photo, presence: true
   validates :price, presence: true
+
+  def new?
+    ((Time.zone.now - self.created_at) / 86400) < 31
+  end
 end

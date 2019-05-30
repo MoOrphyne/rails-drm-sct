@@ -23,6 +23,10 @@ class PacksController < ApplicationController
     redirect_to '/admin'
   end
 
+  def shop
+    @packs = Pack.order('created_at DESC')
+  end
+
   private
 
   def set_pack

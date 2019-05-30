@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Shop</h1>
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore aliquam vero aperiam doloribus at quasi sed deleniti corporis consequuntur ipsum earum.</p>
+  </div>
+
+  <div class="recent-products-container">
+    <h2 class="recent-products-heading">Recent Products</h2>
+    <div class="row">
+      <% @packs.each do |pack| %>
+        <div class="col-xs-12 col-sm-3">
+          <%= link_to pack_path(pack) do  %>
+            <div class="pack-card grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=pack.photo_url%>);">
+              <% if pack.new? %>
+                <div class="new-tag">New</div>
+              <% end %>
+              <div class="pack-card-category"><%= pack.title %></div>
+              <div class="pack-card-description">
+                <p><%= humanized_money_with_symbol(pack.price) %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
