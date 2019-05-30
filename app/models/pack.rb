@@ -9,6 +9,6 @@ class Pack < ApplicationRecord
   validates :price, presence: true
 
   def new?
-    ((Time.zone.now - self.created_at) / 86400) < 31
+    ((Time.zone.now - self.created_at) / 86400) < 3
   end
 end
