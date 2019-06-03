@@ -32,7 +32,7 @@ class PacksController < ApplicationController
 
   def download
     @link = @pack.download_link
-    current_user.send_download_email(@link)
+    current_user.send_download_email(@link, @pack)
   end
 
   private

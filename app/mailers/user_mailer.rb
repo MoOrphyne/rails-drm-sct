@@ -20,7 +20,8 @@ class UserMailer < ApplicationMailer
   def download_link
     @user = params[:user]
     @link = params[:link]
+    @pack = params[:pack]
 
-    mail to: @user.email, subject: 'Drum Society - Download link'
+    mail to: @user.email, subject: "Drum Society - Download link (#{@pack.title})"
   end
 end

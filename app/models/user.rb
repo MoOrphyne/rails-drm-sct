@@ -21,8 +21,8 @@ class User < ApplicationRecord
     send_subscribe_email
   end
 
-  def send_download_email(link)
-    UserMailer.with(user: self, link: link).download_link.deliver_now
+  def send_download_email(link, pack)
+    UserMailer.with(user: self, link: link, pack: pack).download_link.deliver_now
   end
 
   private
