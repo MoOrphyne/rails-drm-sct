@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/admin', to: 'dashboards#admin'
   delete '/unsubscribe', to: 'subscriptions#unsubscribe'
 
+
   resources :packs, only: [:index, :show, :new, :create] do
     collection do
       get 'shop'
