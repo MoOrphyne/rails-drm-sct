@@ -16,4 +16,11 @@ class UserMailer < ApplicationMailer
 
     mail to: @user.email, subject: 'You just subscribe to the Drum Society'
   end
+
+  def download_link
+    @user = params[:user]
+    @link = params[:link]
+
+    mail to: @user.email, subject: 'Drum Society - Download link'
+  end
 end
