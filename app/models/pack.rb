@@ -3,11 +3,12 @@ class Pack < ApplicationRecord
 
   monetize :price_cents
   mount_uploader :photo, PhotoUploader
+  mount_uploader :audio, AudioUploader
 
   validates :title, presence: true
   validates :photo, presence: true
   validates :price, presence: true
-  validates :genre, presence: true
+  # validates :genre, presence: true
 
   GENRES = [
     'Hip Hop',
@@ -26,7 +27,6 @@ class Pack < ApplicationRecord
 
     Aws.config.update(
         region: ENV['AWS_REGION'],
-        # endpoint: 'https://s3.eu-west-2.amazonaws.com',
         access_key_id: ENV['AWS_ACCESS_KEY_ID'],
         secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
     )
@@ -34,12 +34,13 @@ class Pack < ApplicationRecord
     s3_client = Aws::S3::Client.new
 
     download = Aws::S3::Object.new(
-        key: 'Sample.zip',
+        key: self.audio.path,
         bucket_name: 'drm-sct-test',
-        client: s3_client
+        client: s3_client,
+        folder: 'uploads'
         )
     .presigned_url(
-      :get, expires_in: 60 * 60
+      :get, expires_in: 60
     )
   end
 end

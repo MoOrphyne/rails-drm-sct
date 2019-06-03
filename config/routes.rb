@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     collection do
       get 'shop'
     end
+
+    member do
+      post 'download'
+    end
   end
 
   resources :subscriptions, only: [:new, :create]

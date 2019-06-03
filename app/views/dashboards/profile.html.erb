@@ -40,7 +40,7 @@
             <div class="pack-card-category"><%= pack.title %></div>
             <div class="pack-card-description">
               <!-- <p><%#= pack.description.chars.first(50).join('') %></p> -->
-              <%= link_to 'Download', pack.download_link, class: 'btn btn-primary my-2 download-btn' %>
+              <%= button_to 'Download', download_pack_path(pack), class: 'btn btn-primary my-2 download-btn' %>
             </div>
           </div>
         <% end %>

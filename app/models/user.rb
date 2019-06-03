@@ -21,7 +21,12 @@ class User < ApplicationRecord
     send_subscribe_email
   end
 
+  def send_download_email(link)
+    UserMailer.with(user: self, link: link).download_link.deliver_now
+  end
+
   private
+
 
   def send_welcome_email
     UserMailer.with(user: self).welcome.deliver_now
@@ -30,4 +35,5 @@ class User < ApplicationRecord
   def send_subscribe_email
     UserMailer.with(user: self).subscription.deliver_now
   end
+
 end
