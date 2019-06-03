@@ -7,6 +7,15 @@ class Pack < ApplicationRecord
   validates :title, presence: true
   validates :photo, presence: true
   validates :price, presence: true
+  validates :genre, presence: true
+
+  GENRES = [
+    'Hip Hop',
+    '808',
+    'Boom Bap'
+  ]
+
+  validates :genre, inclusion: { in: GENRES }
 
   def new?
     ((Time.zone.now - self.created_at) / 86400) < 3

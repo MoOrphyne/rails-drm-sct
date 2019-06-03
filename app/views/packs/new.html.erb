@@ -4,6 +4,7 @@
       <%= simple_form_for(@pack) do |f| %>
         <%= f.input :title %>
         <%= f.input :description %>
+        <%= f.input :genre, collection: Pack::GENRES %>
         <%= f.input :price %>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
