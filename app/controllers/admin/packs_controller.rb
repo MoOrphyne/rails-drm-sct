@@ -12,17 +12,13 @@ class Admin::PacksController < ApplicationController
 
   def create
     @pack = Pack.new(pack_params)
-
+    authorize :pack, :create?
     if @pack.save
-      @users = User.where(subscriber: true)
-      @users.each do |user|
-        @user_pack = UserPack.create(user_id: user.id, pack_id: @pack.id)
-      end
+      create_user_packs(@pack)
       redirect_to '/admin'
     else
       render :new
     end
-    authorize :pack, :create?
   end
 
   def destroy
@@ -31,6 +27,12 @@ class Admin::PacksController < ApplicationController
   end
 
   private
+
+  def create_user_packs(pack)
+    User.where(subscriber: true).each do |user|
+      UserPack.create(user_id: user.id, pack_id: pack.id)
+    end
+  end
 
   def set_pack
     @pack = Pack.find(params[:id])
