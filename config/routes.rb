@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   delete '/unsubscribe', to: 'subscriptions#unsubscribe'
 
 
-  resources :packs, only: [:index, :show, :new, :create] do
+  resources :packs, only: [:show] do
     collection do
       get 'shop'
     end
@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     member do
       post 'download'
     end
+  end
+
+  namespace :admin do
+    resources :packs, only: [:index, :new, :create]
   end
 
   resources :subscriptions, only: [:new, :create]

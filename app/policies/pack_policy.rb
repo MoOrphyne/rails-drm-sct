@@ -1,7 +1,7 @@
 class PackPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.all if user.admin
     end
   end
 
