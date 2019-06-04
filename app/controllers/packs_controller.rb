@@ -6,10 +6,12 @@ class PacksController < ApplicationController
   end
 
   def show
+    authorize @pack
   end
 
   def new
     @pack = Pack.new
+    authorize :pack, :new?
   end
 
   def create
@@ -24,13 +26,16 @@ class PacksController < ApplicationController
     else
       render :new
     end
+    authorize :pack, :create?
   end
 
   def shop
     @packs = Pack.order('created_at DESC')
+    authorize @packs
   end
 
   def download
+    authorize @pack
     @link = @pack.download_link
     current_user.send_download_email(@link, @pack)
   end
