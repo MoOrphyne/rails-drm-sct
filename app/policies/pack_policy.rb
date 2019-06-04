@@ -21,6 +21,10 @@ class PackPolicy < ApplicationPolicy
     user.packs.find(record.id)
   end
 
+  def delete?
+    user.admin
+  end
+
   def shop?
     true
   end

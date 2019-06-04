@@ -1,5 +1,5 @@
 class Admin::PacksController < ApplicationController
-  before_action :set_pack, only: [:show, :download]
+  before_action :set_pack, only: [:show, :download, :destroy]
 
   def index
     @packs = policy_scope(Pack).order('created_at DESC')
@@ -23,6 +23,11 @@ class Admin::PacksController < ApplicationController
       render :new
     end
     authorize :pack, :create?
+  end
+
+  def destroy
+    @pack.destroy
+    redirect_to admin_packs_path
   end
 
   private
