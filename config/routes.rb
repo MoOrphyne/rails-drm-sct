@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :packs, only: [:index, :new, :create, :destroy]
+    resources :packs, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
   resources :subscriptions, only: [:new, :create]
