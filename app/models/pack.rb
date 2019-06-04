@@ -1,5 +1,5 @@
 class Pack < ApplicationRecord
-  has_many :user_pack, dependent: :destroy
+  has_many :user_packs, dependent: :destroy
 
   monetize :price_cents
 

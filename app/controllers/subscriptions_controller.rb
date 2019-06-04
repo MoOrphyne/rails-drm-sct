@@ -1,5 +1,6 @@
 class SubscriptionsController < ApplicationController
   def new
+    authorize :subscription, :new?
   end
 
   def create
@@ -8,6 +9,7 @@ class SubscriptionsController < ApplicationController
     else
       redirect_to root_path
     end
+    authorize :subscription, :create?
   end
 
   def unsubscribe
@@ -20,6 +22,7 @@ class SubscriptionsController < ApplicationController
         cancel_at_period_end: true,
       }
     )
+    authorize :subscription, :unsubscribe?
   end
 
   private

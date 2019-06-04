@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :user_pack, dependent: :destroy
-  has_many :packs, through: :user_pack
+  has_many :user_packs, dependent: :destroy
+  has_many :packs, through: :user_packs
 
   mount_uploader :photo, PhotoUploader
 
