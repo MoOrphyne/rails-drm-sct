@@ -10,6 +10,7 @@ class Pack < ApplicationRecord
   validates :photo, presence: true
   validates :price, presence: true
   validates :genre, presence: true
+  validates :audio, presence: true
 
   GENRES = [
     'Hip Hop',
