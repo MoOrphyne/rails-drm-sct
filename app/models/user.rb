@@ -18,7 +18,6 @@ class User < ApplicationRecord
       UserPack.create(user_id: self.id, pack_id: pack.id)
     end
     self.save
-    send_subscribe_email
   end
 
   def send_download_email(link, pack)
