@@ -32,6 +32,4 @@ class User < ApplicationRecord
     UserMailer.with(user: self).subscription.deliver_now
   end
 
-  private
-
 end
