@@ -41,7 +41,7 @@ class SubscriptionsController < ApplicationController
 
     subscription = Stripe::Subscription.create({
       customer: customer.id,
-      plan: 'plan_EopqywkUr0PMSQ',
+      plan: 'plan_FDFmCLQuY5YY6L',
     })
     # @order.update(payment: charge.to_json, state: 'paid')
     current_user.to_subscriber

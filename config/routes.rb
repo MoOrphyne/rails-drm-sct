@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post 'hooks/stripe'
   get '/profile', to: 'dashboards#profile'
   get '/admin', to: 'dashboards#admin'
   delete '/unsubscribe', to: 'subscriptions#unsubscribe'
