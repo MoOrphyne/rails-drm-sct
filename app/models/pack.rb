@@ -20,6 +20,14 @@ class Pack < ApplicationRecord
 
   validates :genre, inclusion: { in: GENRES }
 
+  include PgSearch
+
+  pg_search_scope :search_by_title_and_genre,
+    against: [ :title, :genre ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
   def new?
     ((Time.zone.now - self.created_at) / 86400) < 3
   end

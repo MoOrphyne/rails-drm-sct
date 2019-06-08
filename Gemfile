@@ -19,6 +19,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'money-rails'
 gem 'stripe'
+gem 'pg_search'
 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.9.1'

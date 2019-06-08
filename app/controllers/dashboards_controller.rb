@@ -4,7 +4,7 @@ class DashboardsController < ApplicationController
     @packs = @user.packs.order('created_at DESC')
 
     if params[:query] && params[:query][:filter] != ''
-      @packs = @packs.where(genre: params[:query][:filter])
+      @packs = @packs.search_by_title_and_genre(params[:query][:filter])
     end
 
     authorize :dashboard, :profile?
