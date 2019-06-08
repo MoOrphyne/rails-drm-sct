@@ -13,8 +13,17 @@ class User < ApplicationRecord
   after_create :send_welcome_email
 
   def to_subscriber
+    self.subscriber == nil ? new_sub(3) : re_sub
+  end
+
+  def new_sub(n)
     self.update(subscriber: true)
-    last_packs(3)
+    last_packs(n)
+    send_subscribe_email(Pack.last(n))
+  end
+
+  def re_sub
+    self.update(subscriber: true)
     send_subscribe_email
   end
 
@@ -26,8 +35,8 @@ class User < ApplicationRecord
     UserMailer.with(user: self).welcome.deliver_now
   end
 
-  def send_subscribe_email
-    UserMailer.with(user: self).subscription.deliver_now
+  def send_subscribe_email(packs = [])
+    UserMailer.with(user: self, packs: packs).subscription.deliver_now
   end
 
   private

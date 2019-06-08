@@ -1,2 +1,13 @@
 <h1>You're now part of the Drum Society !</h1>
 <p>Thank's <%= @user.email %> you just subscribe to the Drum Society Premium Plan !</p>
+
+
+
+<% if @packs.any? %>
+  <h3>for your first subscribtion you get the 3 last packs</h3>
+  <ul>
+    <% @packs.each do |pack| %>
+      <li><%= pack.title %></li>
+    <% end %>
+  </ul>
+<% end %>

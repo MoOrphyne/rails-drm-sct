@@ -13,6 +13,7 @@ class UserMailer < ApplicationMailer
 
   def subscription
     @user = params[:user]
+    @packs = params[:packs]
 
     mail to: @user.email, subject: 'You just subscribe to the Drum Society'
   end
