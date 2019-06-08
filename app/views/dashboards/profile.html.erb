@@ -28,6 +28,14 @@
 
 
   <h3>My Products</h3>
+
+  <div class="filter">
+    <%= simple_form_for :query, url: profile_path, method: :get, html: {id: 'filter-form'} do |f| %>
+      <%= f.input :filter, collection: Pack::GENRES, input_html: { class: 'select2' }, label: false %>
+      <%= f.submit 'Submit' %>
+    <% end %>
+  </div>
+
   <hr class="featurette-divider">
 
   <div class="row">
