@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    get 'new_user_pack', to: 'packs#new_user_pack'
+    post 'gift', to: 'packs#gift'
     resources :packs, only: [:index, :new, :create, :edit, :update, :destroy]
     resources :subscriptions, only: [:new, :create]
   end

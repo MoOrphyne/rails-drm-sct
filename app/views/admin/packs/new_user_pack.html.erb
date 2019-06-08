@@ -1,0 +1,11 @@
+<div class="form-wrapper">
+  <div class="form-container">
+    <div class="form-content">
+      <%= simple_form_for :gift, url: admin_gift_path, method: :post do |f| %>
+        <%= f.input :user, collection: User.all.map {|u| u.email} %>
+        <%= f.input :pack, collection: Pack.all.map {|p| p.title} %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>

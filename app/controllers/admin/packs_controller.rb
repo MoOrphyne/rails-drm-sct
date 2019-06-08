@@ -33,6 +33,18 @@ class Admin::PacksController < ApplicationController
     redirect_to admin_packs_path
   end
 
+  def new_user_pack
+    @packs = Pack.all
+    @users = User.all
+  end
+
+  def gift
+    @user = User.find_by_email(params[:gift][:user])
+    @pack = Pack.find_by_title(params[:gift][:pack])
+    UserPack.create(user_id: @user.id, pack_id: @pack.id)
+    redirect_to admin_packs_path
+  end
+
   private
 
   def create_user_packs(pack)
