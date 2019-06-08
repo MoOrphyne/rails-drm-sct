@@ -42,10 +42,8 @@ class SubscriptionsController < ApplicationController
     subscription = Stripe::Subscription.create({
       customer: customer.id,
       plan: 'plan_FDFmCLQuY5YY6L',
-      billing: 'send_invoice',
     })
-    # @order.update(payment: charge.to_json, state: 'paid')
-    current_user.to_subscriber
+
     redirect_to profile_path
 
   rescue Stripe::CardError => e
