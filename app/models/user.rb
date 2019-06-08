@@ -27,6 +27,10 @@ class User < ApplicationRecord
     send_subscribe_email
   end
 
+  def user_packs_filter
+    [self.packs.map { |pack| pack.title }, Pack::GENRES].flatten
+  end
+
   def send_download_email(link, pack)
     UserMailer.with(user: self, link: link, pack: pack).download_link.deliver_now
   end
