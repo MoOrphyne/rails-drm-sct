@@ -5,11 +5,15 @@ class SubscriptionPolicy < ApplicationPolicy
     end
   end
 
-  def new?
-    create?
+  def sub?
+    true
   end
 
-  def create?
+  def new_sub?
+    User.where(subscriber: true).count < 500
+  end
+
+  def cancel_sub?
     true
   end
 

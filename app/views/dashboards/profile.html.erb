@@ -10,18 +10,18 @@
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="user-details">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Username: <%= @user.username %></li>
-          <li class="list-group-item">Email: <%= @user.email %></li>
-          <% if @user.subscriber %>
-            <li class="list-group-item">Current subscribtion: Active <%= link_to 'Cancel', unsubscribe_path, :method => :delete  %></li>
-          <% else %>
-            <li class="list-group-item">Current subscribtion: Inactive</li>
-          <% end %>
-          <li class="list-group-item"><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-        </ul>
-      </div>
+
+      <ul class="list-group">
+        <li class="list-group-item"><%= @user.username %></li>
+        <li class="list-group-item"><%= @user.email %></li>
+        <li class="list-group-item">Number of articles: <%= @user.packs.count %></li>
+        <% if @user.subscriber %>
+          <li class="list-group-item list-group-item-success">Subscribtion Status: <strong>Active</strong></li>
+        <% else %>
+          <li class="list-group-item list-group-item-primary">Subscribtion Status: <strong>Inactive</strong></li>
+        <% end %>
+      </ul>
+
     </div>
   </div>
 

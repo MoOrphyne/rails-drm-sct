@@ -1,18 +1,11 @@
 class SubscriptionsController < ApplicationController
-  def new
-    authorize :subscription, :new?
+
+  def sub
+    authorize :subscription, :sub?
+    @subscribers = User.where(subscriber: true)
   end
 
-  def create
-    if User.where(subscriber: true).count < 500
-      subscribe
-    else
-      redirect_to root_path
-    end
-    authorize :subscription, :create?
-  end
-
-  def unsubscribe
+  def cancel_sub
     @subscriber = Stripe::Customer.retrieve(current_user.stripe_id)
     @subscription = @subscriber.subscriptions.data[0].id
 
@@ -25,9 +18,9 @@ class SubscriptionsController < ApplicationController
     authorize :subscription, :unsubscribe?
   end
 
-  private
+  def new_sub
+    authorize :subscription, :new_sub?
 
-  def subscribe
     if current_user.stripe_id
       customer = Stripe::Customer.retrieve(current_user.stripe_id)
     else
@@ -42,6 +35,8 @@ class SubscriptionsController < ApplicationController
     subscription = Stripe::Subscription.create({
       customer: customer.id,
       plan: 'plan_FDFmCLQuY5YY6L',
+      billing: 'send_invoice',
+      days_until_due: 1,
     })
 
     redirect_to profile_path

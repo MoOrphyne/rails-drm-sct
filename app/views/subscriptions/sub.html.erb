@@ -4,6 +4,8 @@
       <h1>You are already part of society</h1>
       <p>consult your dashboard <%= link_to 'here', profile_path %></p>
     </div>
+  <% elsif @subscribers.count >= 500 %>
+    <h1>there is no more slot available for the moment</h1>
   <% else %>
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 class="display-4">Pricing</h1>
@@ -13,7 +15,7 @@
 
     <div class="row">
       <div class="col-sm-4 offset-md-4">
-        <%= form_tag subscriptions_path :method => :post do %>
+        <%= form_tag new_sub_path :method => :post do %>
           <div class="card-deck mb-3 text-center">
             <div class="card mb-4 box-shadow">
               <div class="card-header">
