@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
   post 'hooks/stripe'
+
   get '/profile', to: 'dashboards#profile'
   get '/admin', to: 'dashboards#admin'
-  delete '/unsubscribe', to: 'subscriptions#unsubscribe'
+
+  get 'sub', to: 'subscriptions#sub'
+  post 'new_sub', to: 'subscriptions#new_sub'
+  delete 'cancel_sub', to: 'subscriptions#cancel_sub'
 
 
   resources :packs, only: [:show] do
@@ -18,9 +22,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :packs, only: [:index, :new, :create, :edit, :update, :destroy]
+    resources :subscriptions, only: [:new, :create]
   end
 
-  resources :subscriptions, only: [:new, :create]
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
