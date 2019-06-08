@@ -60,4 +60,5 @@ class Admin::PacksController < ApplicationController
   def pack_params
     params.require(:pack).permit(:title, :description, :photo, :price, :genre, :audio)
   end
+
 end
