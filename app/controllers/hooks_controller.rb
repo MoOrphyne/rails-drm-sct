@@ -22,18 +22,12 @@ class HooksController < ApplicationController
 
   def charge_succeeded(data)
     @user = User.find_by_email(data['data']['object']['billing_details']['name'])
-    @user.update(subscriber: true)
+    # @user.update(subscriber: true)
   end
 
   def subscription_created(data)
     @user = User.find_by_stripe_id(data['data']['object']['customer'])
-    @user.update(subscriber: true)
-    @user.send_subscribe_email
-    invoices('cus_FDH2AQTpezfMzz')
+    @user.to_subscriber
   end
 
-  # def invoices(customer)
-  #   @customer = Stripe::Customer.retrieve(customer)
-  #   binding.pry
-  # end
 end

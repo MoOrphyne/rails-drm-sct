@@ -13,11 +13,9 @@ class User < ApplicationRecord
   after_create :send_welcome_email
 
   def to_subscriber
-    self.subscriber = true
-    Pack.last(3).each do |pack|
-      UserPack.create(user_id: self.id, pack_id: pack.id)
-    end
-    self.save
+    self.update(subscriber: true)
+    last_packs(3)
+    send_subscribe_email
   end
 
   def send_download_email(link, pack)
@@ -30,6 +28,12 @@ class User < ApplicationRecord
 
   def send_subscribe_email
     UserMailer.with(user: self).subscription.deliver_now
+  end
+
+  private
+
+  def last_packs(n)
+    Pack.last(n).each { |pack| UserPack.create(user_id: self.id, pack_id: pack.id) }
   end
 
 end
