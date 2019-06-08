@@ -2,8 +2,8 @@
   <div class="form-container">
     <div class="form-content">
       <%= simple_form_for :gift, url: admin_gift_path, method: :post do |f| %>
-        <%= f.input :user, collection: User.all.map {|u| u.email} %>
-        <%= f.input :pack, collection: Pack.all.map {|p| p.title} %>
+        <%= f.input :user, collection: User.all.map {|u| u.email}, input_html: { class: 'select2' } %>
+        <%= f.input :pack, collection: Pack.all.map {|p| p.title}, input_html: { class: 'select2' } %>
         <%= f.submit %>
       <% end %>
     </div>
