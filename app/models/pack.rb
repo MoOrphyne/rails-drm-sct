@@ -33,7 +33,7 @@ class Pack < ApplicationRecord
   end
 
   def download_link
-    require 'aws-sdk'
+    require 'aws-sdk-s3'
 
     Aws.config.update(
         region: ENV['AWS_REGION'],
