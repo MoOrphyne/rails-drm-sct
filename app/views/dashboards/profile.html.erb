@@ -34,7 +34,7 @@
     <div id="filter-input">
       <%= f.input :filter, collection: @user.user_packs_filter, input_html: { class: 'select2' }, label: false %>
     </div>
-      <%= f.submit id: 'filter-submit' %>
+      <%= f.submit id: 'filter-submit', class: 'd-none' %>
     <% end %>
   </div>
 

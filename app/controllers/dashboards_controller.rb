@@ -3,7 +3,7 @@ class DashboardsController < ApplicationController
     @user = current_user
     @packs = @user.packs.order('created_at DESC')
 
-    if params[:query] && params[:query][:filter] != ''
+    if params[:query] && params[:query][:filter] != 'All'
       @packs = @packs.search_by_title_and_genre(params[:query][:filter])
     end
 

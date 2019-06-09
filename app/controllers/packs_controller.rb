@@ -9,7 +9,7 @@ class PacksController < ApplicationController
     @packs = Pack.order('created_at DESC')
     authorize @packs
 
-    if params[:query] && params[:query][:filter] != ''
+    if params[:query] && params[:query][:filter] != 'All'
       @packs = @packs.search_by_title_and_genre(params[:query][:filter])
     end
 

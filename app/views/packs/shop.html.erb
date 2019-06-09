@@ -7,10 +7,8 @@
 
   <div class="filter">
     <%= simple_form_for :query, url: shop_packs_path, method: :get, html: {id: 'filter-form'} do |f| %>
-    <div id="filter-input">
       <%= f.input :filter, collection: Pack.packs_filter, input_html: { class: 'select2' }, label: false %>
-    </div>
-      <%= f.submit id: 'filter-submit' %>
+      <%= f.submit id: 'filter-submit', class: 'd-none' %>
     <% end %>
   </div>
 
