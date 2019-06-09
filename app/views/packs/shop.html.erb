@@ -5,6 +5,15 @@
     <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore aliquam vero aperiam doloribus at quasi sed deleniti corporis consequuntur ipsum earum.</p>
   </div>
 
+  <div class="filter">
+    <%= simple_form_for :query, url: shop_packs_path, method: :get, html: {id: 'filter-form'} do |f| %>
+    <div id="filter-input">
+      <%= f.input :filter, collection: Pack.packs_filter, input_html: { class: 'select2' }, label: false %>
+    </div>
+      <%= f.submit id: 'filter-submit' %>
+    <% end %>
+  </div>
+
   <div class="recent-products-container">
     <h2 class="recent-products-heading">Recent Products</h2>
     <div class="row">

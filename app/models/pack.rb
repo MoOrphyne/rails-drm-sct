@@ -54,4 +54,8 @@ class Pack < ApplicationRecord
     )
   end
 
+  def self.packs_filter
+    [GENRES, Pack.all.map { |pack| pack.title }].flatten
+  end
+
 end
