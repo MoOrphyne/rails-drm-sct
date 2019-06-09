@@ -4,13 +4,13 @@ class Pack < ApplicationRecord
   monetize :price_cents
 
   mount_uploader :photo, PhotoUploader
-  mount_uploader :audio, AudioUploader
+  mount_uploader :file, FileUploader
 
   validates :title, presence: true
   validates :photo, presence: true
   validates :price, presence: true
   validates :genre, presence: true
-  validates :audio, presence: true
+  validates :file, presence: true
 
   GENRES = [
     'Hip Hop',
@@ -44,7 +44,7 @@ class Pack < ApplicationRecord
     s3_client = Aws::S3::Client.new
 
     download = Aws::S3::Object.new(
-        key: self.audio.path,
+        key: self.file.path,
         bucket_name: 'drm-sct-test',
         client: s3_client,
         folder: 'uploads'
@@ -53,4 +53,5 @@ class Pack < ApplicationRecord
       :get, expires_in: 60
     )
   end
+
 end
