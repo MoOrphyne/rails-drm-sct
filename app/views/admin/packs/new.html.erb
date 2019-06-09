@@ -21,6 +21,7 @@
             <%= f.input :file %>
           </div>
         </div>
+        <%= f.input :infos, collection: Pack::INFOS, input_html: { class: "js-example-basic-multiple", name: "infos[]", multiple: "multiple" } %>
         <%= f.submit %>
       <% end %>
     </div>

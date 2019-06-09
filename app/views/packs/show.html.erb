@@ -1,19 +1,38 @@
 <div class="container">
-  <div class="pack-infos">
-    <div class="row align-items-center">
+  <div class="pack-infos pb-5">
+    <div class="row">
       <div class="col-xs-12 col-md-6">
-        <img src="<%= cl_image_path @pack.photo %>" alt="" class="pack-img">
-        <p><%= number_to_human_size(@pack.file_size) %></p>
-        <p><%= @pack.content_type.split('/').last %></p>
-        <h3><%= humanized_money_with_symbol(@pack.price) %></h3>
-        <%= link_to root_path, class: 'btn btn-primary' do %>
-          <span>Add to cart</span><i class="fas fa-cart-arrow-down"></i>
-        <% end %>
+
+        <img src="<%= cl_image_path @pack.photo %>" alt="" class="pack-img mb-5">
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="pack-details">
+              <ul class="list-unstyled">
+                <% @pack.infos.each do |info| %>
+                  <li><%= info %></li>
+                <% end %>
+                <li><%= number_to_human_size(@pack.file_size) %></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="pack-purchase-info">
+              <h3><%= humanized_money_with_symbol(@pack.price) %></h3>
+              <%= link_to root_path, class: 'btn btn-primary' do %>
+                <span>Add to cart</span><i class="fas fa-cart-arrow-down"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
+
       <div class="col-xs-12 col-md-6">
         <h3><%= @pack.title %></h3>
         <p><%= simple_format @pack.description %></p>
       </div>
+
     </div>
   </div>
 </div>
