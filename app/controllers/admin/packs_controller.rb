@@ -16,6 +16,7 @@ class Admin::PacksController < ApplicationController
     if @pack.save
       create_user_packs(@pack)
       redirect_to '/admin'
+      flash[:notice] = "Pack successfully created"
     else
       render :new
     end
