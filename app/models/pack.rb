@@ -57,7 +57,7 @@ class Pack < ApplicationRecord
   end
 
   def self.packs_filter
-    ['All', GENRES, Pack.all.map { |pack| pack.title }].flatten
+    ['All', GENRES, Pack.all.pluck(:title)].flatten
   end
 
 end
