@@ -23,23 +23,28 @@ class Admin::PacksController < ApplicationController
   end
 
   def edit
+    authorize @pack
   end
 
   def update
     @pack.update(pack_params)
+    authorize @pack
   end
 
   def destroy
+    authorize @pack
     @pack.destroy
     redirect_to admin_packs_path
   end
 
   def new_user_pack
+    authorize :pack, :new_user_pack?
     @packs = Pack.all
     @users = User.all
   end
 
   def gift
+    authorize :pack, :gift?
     @user = User.find_by_email(params[:gift][:user])
     @pack = Pack.find_by_title(params[:gift][:pack])
     UserPack.create(user_id: @user.id, pack_id: @pack.id)
