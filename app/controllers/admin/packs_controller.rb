@@ -16,29 +16,35 @@ class Admin::PacksController < ApplicationController
     if @pack.save
       create_user_packs(@pack)
       redirect_to '/admin'
+      flash[:notice] = "Pack successfully created"
     else
       render :new
     end
   end
 
   def edit
+    authorize @pack
   end
 
   def update
     @pack.update(pack_params)
+    authorize @pack
   end
 
   def destroy
+    authorize @pack
     @pack.destroy
     redirect_to admin_packs_path
   end
 
   def new_user_pack
+    authorize :pack, :new_user_pack?
     @packs = Pack.all
     @users = User.all
   end
 
   def gift
+    authorize :pack, :gift?
     @user = User.find_by_email(params[:gift][:user])
     @pack = Pack.find_by_title(params[:gift][:pack])
     UserPack.create(user_id: @user.id, pack_id: @pack.id)
@@ -58,7 +64,7 @@ class Admin::PacksController < ApplicationController
   end
 
   def pack_params
-    params.require(:pack).permit(:title, :description, :photo, :price, :genre, :audio)
+    params.require(:pack).permit(:title, :description, :photo, :price, :genre, :file)
   end
 
 end

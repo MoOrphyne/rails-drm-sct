@@ -1,6 +1,7 @@
 .pack-card {
   height: 250px;
   width: 250px;
+  border-radius: 7px;
   margin-bottom: 15px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
@@ -27,6 +28,9 @@
   position: absolute;
   bottom: 10px;
   left: 10px;
+  a {
+    color: white;
+  }
 }
 .pack-card-description h2 {
   font-size: 24px;

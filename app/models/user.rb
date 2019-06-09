@@ -28,7 +28,7 @@ class User < ApplicationRecord
   end
 
   def user_packs_filter
-    [Pack::GENRES, self.packs.map { |pack| pack.title }].flatten
+    ['All', Pack::GENRES, self.packs.pluck(:title)].flatten
   end
 
   def send_download_email(link, pack)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_154101) do
+ActiveRecord::Schema.define(version: 2019_06_09_174942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,9 @@ ActiveRecord::Schema.define(version: 2019_06_03_154101) do
     t.string "photo"
     t.integer "price_cents", default: 0, null: false
     t.string "genre"
-    t.string "audio"
+    t.string "file"
+    t.string "file_size"
+    t.string "content_type"
   end
 
   create_table "user_packs", force: :cascade do |t|

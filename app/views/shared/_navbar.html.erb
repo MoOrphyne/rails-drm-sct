@@ -1,6 +1,11 @@
 <div class="navbar navbar-dark bg-dark box-shadow">
   <div class="container d-flex justify-content-between">
-    <%= link_to 'Drum Society', root_path, class: 'navbar-brand d-flex align-items-center' %>
+    <div class="nav-left d-flex">
+      <%= link_to 'Drum Society', root_path, class: 'navbar-brand d-flex align-items-center' %>
+      <% if current_user && !current_user.subscriber %>
+        <%= link_to 'Join', sub_path, class: 'btn btn-primary my-2' %>
+      <% end %>
+    </div>
     <div class="right-nav">
       <% if current_user %>
         <% if current_user.admin %>

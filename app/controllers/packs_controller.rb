@@ -8,6 +8,11 @@ class PacksController < ApplicationController
   def shop
     @packs = Pack.order('created_at DESC')
     authorize @packs
+
+    if params[:query] && params[:query][:filter] != 'All'
+      @packs = @packs.search_by_title_and_genre(params[:query][:filter])
+    end
+
   end
 
   def download
@@ -23,6 +28,6 @@ class PacksController < ApplicationController
   end
 
   def pack_params
-    params.require(:pack).permit(:title, :description, :photo, :price, :genre, :audio)
+    params.require(:pack).permit(:title, :description, :photo, :price, :genre, :file)
   end
 end
