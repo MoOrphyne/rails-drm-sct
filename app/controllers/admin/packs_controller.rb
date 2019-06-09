@@ -12,6 +12,7 @@ class Admin::PacksController < ApplicationController
 
   def create
     @pack = Pack.new(pack_params)
+    @pack.infos = "#{params[:infos].join(',')},"
     authorize :pack, :create?
     if @pack.save
       create_user_packs(@pack)
@@ -64,7 +65,7 @@ class Admin::PacksController < ApplicationController
   end
 
   def pack_params
-    params.require(:pack).permit(:title, :description, :photo, :price, :genre, :file)
+    params.require(:pack).permit(:title, :description, :photo, :price, :genre, :file, :infos)
   end
 
 end

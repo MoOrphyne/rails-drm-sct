@@ -18,4 +18,10 @@ const initSelect2 = () => {
   })
 };
 
-export { initSelect2, initFilter };
+const initSelector = () => {
+  $(document).ready(function() {
+      $('.js-example-basic-multiple').select2();
+  });
+}
+
+export { initSelect2, initFilter, initSelector };

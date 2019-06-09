@@ -11,6 +11,7 @@ class Pack < ApplicationRecord
   validates :price, presence: true
   validates :genre, presence: true
   validates :file, presence: true
+  validates :infos, presence: true
 
   GENRES = [
     'Hip Hop',
@@ -18,6 +19,17 @@ class Pack < ApplicationRecord
     'Boom Bap',
     'Trap',
     'Vocals',
+  ]
+
+  INFOS = [
+    '44.1khz',
+    '48khz',
+    '96khz',
+    '16bits',
+    '24bits',
+    'Wav',
+    'Aiff',
+    'Mp3'
   ]
 
   validates :genre, inclusion: { in: GENRES }
