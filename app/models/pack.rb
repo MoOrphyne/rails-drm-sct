@@ -15,7 +15,9 @@ class Pack < ApplicationRecord
   GENRES = [
     'Hip Hop',
     '808',
-    'Boom Bap'
+    'Boom Bap',
+    'Trap',
+    'Vocals',
   ]
 
   validates :genre, inclusion: { in: GENRES }
