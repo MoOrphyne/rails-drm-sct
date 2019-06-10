@@ -6,31 +6,14 @@
   </div>
 
   <div class="filter">
-    <%= simple_form_for :query, url: shop_packs_path, method: :get, html: {id: 'filter-form'} do |f| %>
+    <%= simple_form_for :query, url: shop_packs_path, method: :get, html: {id: 'filter-form'}, remote: true do |f| %>
       <%= f.input :filter, collection: Pack.packs_filter, input_html: { class: 'select2' }, label: false %>
       <%= f.submit id: 'filter-submit', class: 'd-none' %>
     <% end %>
   </div>
 
-  <div class="recent-products-container">
-    <h2 class="recent-products-heading">Recent Products</h2>
-    <div class="row">
-      <% @packs.each do |pack| %>
-        <div class="col-xs-12 col-sm-3">
-          <%= link_to pack_path(pack) do  %>
-            <div class="pack-card grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=pack.photo_url%>);">
-              <% if pack.new? %>
-                <div class="new-tag">New</div>
-              <% end %>
-              <div class="pack-card-category"><%= pack.title %></div>
-              <div class="pack-card-description">
-                <p><%= humanized_money_with_symbol(pack.price) %></p>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+  <div class="products">
+    <%= render './shared/products', packs: @packs %>
   </div>
 
 </div>
