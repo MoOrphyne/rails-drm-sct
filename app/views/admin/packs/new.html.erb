@@ -1,5 +1,10 @@
 <div class="form-wrapper">
   <div class="form-container">
+    <div class="mx-auto text-center">
+      <h1 class="display-4">New Pack</h1>
+      <p class="lead">Create a new pack</p>
+      <i class="fas fa-plus-circle pt-1" style="font-size: 3em"></i>
+    </div>
     <div class="form-content">
       <%= simple_form_for(@pack, url: admin_packs_path, method: :post) do |f| %>
         <%= f.input :title %>

@@ -1,10 +1,10 @@
 <div class="container mt-5 mb-3">
-  <div class="admin-actions">
+  <div class="admin-actions d-flex justify-content-center flex-column align-items-center text-center" style="height: 600px">
     <h4>Actions</h4>
     <ul class="list-unstyled">
-      <li><%= link_to 'Index', admin_packs_path %></li>
-      <li><%= link_to 'New pack', new_admin_pack_path %></li>
-      <li><%= link_to 'Gift', admin_new_user_pack_path %></li>
+      <li class="admin-action grow"><%= link_to 'Index', admin_packs_path %></li>
+      <li class="admin-action grow"><%= link_to 'New pack', new_admin_pack_path %></li>
+      <li class="admin-action grow"><%= link_to 'Gift', admin_new_user_pack_path %></li>
     </ul>
   </div>
 </div>
