@@ -40,5 +40,16 @@
       </div>
 
     </div>
+
+    <div class="also">
+      <div class="text-center mt-5 mb-5">
+        <h3>You may also like...</h3>
+      </div>
+      <div class="row">
+        <% @also_packs.each do |pack| %>
+            <%= render './shared/pack_card', pack: pack %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

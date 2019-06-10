@@ -3,6 +3,7 @@ class PacksController < ApplicationController
 
   def show
     authorize @pack
+    @also_packs = Pack.where(genre: @pack.genre).where.not(id: @pack.id).limit(4)
   end
 
   def shop
