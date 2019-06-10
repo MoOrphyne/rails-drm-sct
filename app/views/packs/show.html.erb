@@ -1,12 +1,14 @@
 <div class="container">
   <div class="pack-infos pb-5">
     <div class="row">
-      <div class="col-xs-12 col-md-6">
+      <div class="col-xs-12 col-md-6 pack-show-col">
 
-        <img src="<%= cl_image_path @pack.photo %>" alt="" class="pack-img mb-5">
+        <div class="pack-image text-center">
+          <img src="<%= cl_image_path @pack.photo %>" alt="" class="pack-img mb-5">
+        </div>
 
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-sm-6 d-flex justify-content-start">
             <div class="pack-details">
               <ul class="list-unstyled">
                 <% @pack.infos.each do |info| %>
@@ -17,7 +19,7 @@
             </div>
           </div>
 
-          <div class="col-sm-6">
+          <div class="col-sm-6 d-flex justify-content-end text-right">
             <div class="pack-purchase-info">
               <h3><%= humanized_money_with_symbol(@pack.price) %></h3>
               <%= link_to root_path, class: 'btn btn-primary' do %>
@@ -28,7 +30,7 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-md-6">
+      <div class="col-xs-12 col-md-6 pack-show-col">
         <h3><%= @pack.title %></h3>
         <p><%= simple_format @pack.description %></p>
       </div>
