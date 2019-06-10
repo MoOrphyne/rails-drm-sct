@@ -10,10 +10,10 @@
         <%= simple_form_for :gift, url: admin_gift_path, method: :post do |f| %>
           <div class="row">
             <div class="col-sm-6">
-              <%= f.input :user, collection: User.all.map {|u| u.email}, input_html: { class: 'select2' }, label: false %>
+              <%= f.input :user, collection: ['All Subs', User.all.pluck(:email)].flatten, input_html: { class: 'select2' }, label: false %>
             </div>
             <div class="col-sm-6">
-              <%= f.input :pack, collection: Pack.all.map {|p| p.title}, input_html: { class: 'select2' }, label: false %>
+              <%= f.input :pack, collection: Pack.all.pluck(:title), input_html: { class: 'select2' }, label: false %>
             </div>
           </div>
           <div class="row">

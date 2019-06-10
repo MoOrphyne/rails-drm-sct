@@ -46,9 +46,15 @@ class Admin::PacksController < ApplicationController
 
   def gift
     authorize :pack, :gift?
-    @user = User.find_by_email(params[:gift][:user])
     @pack = Pack.find_by_title(params[:gift][:pack])
-    UserPack.create(user_id: @user.id, pack_id: @pack.id)
+
+    if params[:gift][:user] == 'All Subs'
+      create_user_packs(@pack)
+    else
+      @user = User.find_by_email(params[:gift][:user])
+      UserPack.create(user_id: @user.id, pack_id: @pack.id)
+    end
+
     redirect_to admin_packs_path
   end
 
