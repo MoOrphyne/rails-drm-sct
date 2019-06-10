@@ -11,6 +11,11 @@ class PacksController < ApplicationController
 
     if params[:query] && params[:query][:filter] != 'All'
       @packs = @packs.search_by_title_and_genre(params[:query][:filter])
+
+      respond_to do |format|
+        format.html { redirect_to shop_packs_path }
+        format.js
+      end
     end
 
   end
