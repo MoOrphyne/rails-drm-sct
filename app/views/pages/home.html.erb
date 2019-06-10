@@ -24,7 +24,7 @@
             <div class="pack-card grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=pack.photo_url%>);">
               <div class="pack-card-category"><%= pack.title %></div>
               <div class="pack-card-description">
-                <p><%= pack.description.chars.first(50).join('') %></p>
+                <p><%= truncate(pack.description, length: 50) %></p>
               </div>
             </div>
           <% end %>
