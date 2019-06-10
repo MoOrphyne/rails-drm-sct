@@ -21,9 +21,13 @@
 
           <div class="col-sm-6 d-flex justify-content-end text-right">
             <div class="pack-purchase-info">
-              <h3><%= humanized_money_with_symbol(@pack.price) %></h3>
-              <%= link_to root_path, class: 'btn btn-primary' do %>
-                <span>Add to cart</span><i class="fas fa-cart-arrow-down"></i>
+              <% if current_user.got_it?(@pack) %>
+                <h3>You own this pack</h3>
+              <% else %>
+                <h3><%= humanized_money_with_symbol(@pack.price) %></h3>
+                <%= link_to root_path, class: 'btn btn-primary' do %>
+                  <span>Add to cart</span><i class="fas fa-cart-arrow-down"></i>
+                <% end %>
               <% end %>
             </div>
           </div>

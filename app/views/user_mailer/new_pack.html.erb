@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Hello <%= @user.email %></h1>
+  <p>We've just added a new pack to the drum society</p>
+
+  <div class="email-pack-description">
+    <h3><%= @pack.title %></h3>
+    <p><%= simple_format @pack.description %></p>
+  </div>
+
+  <p>Check your <%= link_to 'dashboard', profile_url %> to download it !</p>
+</div>

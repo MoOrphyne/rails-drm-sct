@@ -25,4 +25,11 @@ class UserMailer < ApplicationMailer
 
     mail to: @user.email, subject: "Drum Society - Download link (#{@pack.title})"
   end
+
+  def new_pack
+    @user = params[:user]
+    @pack = params[:pack]
+
+    mail to: @user.email, subject: 'Drum Society - A new pack added to your account'
+  end
 end

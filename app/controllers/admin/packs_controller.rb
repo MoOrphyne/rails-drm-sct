@@ -63,6 +63,7 @@ class Admin::PacksController < ApplicationController
   def create_user_packs(pack)
     User.where(subscriber: true).each do |user|
       UserPack.create(user_id: user.id, pack_id: pack.id)
+      user.send_new_pack_email(pack)
     end
   end
 
