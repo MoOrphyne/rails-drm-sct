@@ -20,7 +20,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders, only: [:show, :create]
+  resources :orders, only: [:show, :create] do
+    post 'payment'
+  end
+
   resources :order_items, only: [:destroy]
 
   namespace :admin do

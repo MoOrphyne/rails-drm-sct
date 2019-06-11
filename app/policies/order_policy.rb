@@ -12,4 +12,8 @@ class OrderPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def payment?
+    record.user == user
+  end
 end

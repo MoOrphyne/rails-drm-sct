@@ -21,7 +21,9 @@
           <li class="list-group-item list-group-item-primary">Subscribtion Status: <strong>Inactive</strong></li>
         <% end %>
         <li class="list-group-item"><%= link_to 'Update Profile', edit_user_registration_path %></li>
-        <li class="list-group-item"><%= link_to 'My cart', order_path(@user.pending_order) %> - <%= @user.pending_order.order_items.count %> Items</li>
+        <% if @user.pending_order %>
+          <li class="list-group-item"><%= link_to 'My cart', order_path(@user.pending_order) %> - <%= @user.pending_order.order_items.count %> Items</li>
+        <% end %>
       </ul>
 
     </div>
