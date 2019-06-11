@@ -30,18 +30,6 @@
               <div class="total justify-content-center">
                 <%= render './order_items/total', order: @order %>
               </div>
-              <%= form_tag order_payment_path(@order), :method => :post do %>
-
-                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                  data-name="Drum-Society"
-                  data-email="<%= current_user.email %>"
-                  data-description="<%= @order.packs.count %> Articles"
-                  data-amount="<%= @order.total %>"
-                  data-currency="EUR">
-                </script>
-
-              <% end %>
             </div>
             <div class="card-footer text-muted">
               taxes calculated at checkout
