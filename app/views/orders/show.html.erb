@@ -1,31 +1,48 @@
 <div class="container">
 
-  <div class="order-details">
+  <div class="order-details mb-5">
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4">Checkout summary</h1>
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore aliquam vero aperiam doloribus at quasi sed deleniti corporis consequuntur ipsum earum.</p>
+    </div>
 
-    <% if @order.order_items.count > 0 %>
-      <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4">Checkout summary</h1>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore aliquam vero aperiam doloribus at quasi sed deleniti corporis consequuntur ipsum earum.</p>
-      </div>
+    <div class="row">
+      <% if @order.order_items.count > 0 %>
+        <div class="col-sm-8">
 
-      <% @order.order_items.each do |item| %>
-        <div id="item-row-<%= item.id %>" class="row text-center align-items-center item-details">
-          <div class="col-sm-3"> <div class="item-rm" id="<%= item.id.to_s %>"><%= link_to 'Remove', order_item_path(item), method: :delete, remote: true %></div></div>
-          <div class="col-sm-3"><img src="<%= cl_image_path item.pack.photo %>" height="150" width="150" alt=""class="mb-1"></div>
-          <div class="col-sm-3"><%= item.pack.title %></div>
-          <div class="col-sm-3"><%= humanized_money_with_symbol(item.pack.price) %></div>
+          <% @order.order_items.each do |item| %>
+            <div id="item-row-<%= item.id %>" class="row text-center align-items-center item-details">
+              <div class="col-sm-3"> <div class="item-rm" id="<%= item.id.to_s %>"><%= link_to 'Remove', order_item_path(item), method: :delete, remote: true %></div></div>
+              <div class="col-sm-3"><img src="<%= cl_image_path item.pack.photo %>" height="150" width="150" alt=""class="mb-1"></div>
+              <div class="col-sm-3"><%= item.pack.title %></div>
+              <div class="col-sm-3"><%= humanized_money_with_symbol(item.pack.price) %></div>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="card text-center">
+            <div class="card-header">
+              Receipt
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Total</h5>
+              <div class="total justify-content-center">
+                <%= render './order_items/total', order: @order %>
+              </div>
+              <a href="#" class="btn btn-primary">Checkout</a>
+            </div>
+            <div class="card-footer text-muted">
+              taxes calculated at checkout
+            </div>
+          </div>
+        </div>
+
+      <% else %>
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+          <p class="lead">Your cart is empty</p>
         </div>
       <% end %>
-
-    <% else %>
-      <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4">Checkout summary</h1>
-        <p class="lead">Your cart is empty</p>
-      </div>
-    <% end %>
-
+    </div>
   </div>
-    <div class="total text-center pt-5 mb-5">
-      <%= render './order_items/total', order: @order %>
-    <div>
 </div>
