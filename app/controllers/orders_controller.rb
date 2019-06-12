@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :create, :payment]
+  before_action :set_order, only: [:show, :create]
 
   def index
     @orders = policy_scope(Order)
@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
   end
 
   def payment
+    @order = Order.find(params[:order_id])
     authorize @order
     if current_user.stripe_id
       customer = Stripe::Customer.retrieve(current_user.stripe_id)
