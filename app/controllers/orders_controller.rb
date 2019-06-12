@@ -1,6 +1,10 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :create, :payment]
 
+  def index
+    @orders = policy_scope(Order)
+  end
+
   def show
     @order = current_user.orders.find_by_status('pending')
     authorize @order
