@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :user_packs, dependent: :destroy
   has_many :packs, through: :user_packs
+  has_many :orders
 
   mount_uploader :photo, PhotoUploader
 
@@ -29,6 +30,10 @@ class User < ApplicationRecord
 
   def got_it?(pack)
     self.packs.include?(pack)
+  end
+
+  def pending_order
+    self.orders.find_by_status('pending')
   end
 
   def user_packs_filter

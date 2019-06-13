@@ -1,7 +1,7 @@
 <div class="form-wrapper">
   <div class="form-container">
     <div class="form-content">
-      <%= simple_form_for(@pack, url: admin_packs_path, method: :post) do |f| %>
+      <%= simple_form_for(@pack, url: admin_pack_path, method: :put) do |f| %>
         <%= f.input :title %>
         <%= f.input :description %>
         <div class="row">

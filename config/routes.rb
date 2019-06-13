@@ -20,6 +20,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :orders, only: [:index, :show, :create] do
+    post 'payment'
+  end
+
+  resources :order_items, only: [:destroy]
+
   namespace :admin do
     get 'new_user_pack', to: 'packs#new_user_pack'
     post 'gift', to: 'packs#gift'
