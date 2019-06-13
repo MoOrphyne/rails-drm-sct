@@ -2,7 +2,7 @@
   <div class="row user-infos">
     <div class="col-sm-6">
       <div class="user-avatar">
-        <% if @user.photo.file.nil?%>
+        <% if @user.photo.file.nil? %>
           <%= image_tag "avatar-baf.png", height: 220, width: 220 %>
         <% else %>
           <%= cl_image_tag @user.photo, height: 220, width: 220, crop: :fill, class: "user-picture" %>
