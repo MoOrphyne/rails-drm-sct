@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   post 'new_sub', to: 'subscriptions#new_sub'
   delete 'cancel_sub', to: 'subscriptions#cancel_sub'
 
-
   resources :packs, only: [:show] do
     collection do
       get 'shop'
