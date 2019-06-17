@@ -51,5 +51,27 @@
         <% end %>
       </div>
     </div>
+
+    <div class="reviews">
+      <div class="text-center mt-5 mb-5">
+        <h3>Reviews</h3>
+      </div>
+
+      <% if !@pack.reviews.pluck(:user_id).include?(current_user.id) && current_user.got_it?(@pack) %>
+        <div class="review-form">
+          <%= simple_form_for([@pack, Review.new]) do |f| %>
+            <%= f.input :rating %>
+            <%= f.input :content %>
+            <%= f.submit 'Send', class: 'btn btn-primary my-2' %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="reviews-list">
+        <% @pack.reviews.each do |review| %>
+          <%= render './shared/review-card', review: review %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

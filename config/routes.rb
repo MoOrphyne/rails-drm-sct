@@ -17,7 +17,11 @@ Rails.application.routes.draw do
     member do
       post 'download'
     end
+
+    resources :reviews, only: [:new, :create]
   end
+
+  resources :reviews, only: [:destroy]
 
   resources :orders, only: [:index, :show, :create] do
     post 'payment'

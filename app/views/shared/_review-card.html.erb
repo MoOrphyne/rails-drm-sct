@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-header">
+    <%= review.rating %>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p><%= review.content %></p>
+      <footer class="blockquote-footer"><%= review.user.username %></footer>
+    </blockquote>
+  </div>
+</div>
