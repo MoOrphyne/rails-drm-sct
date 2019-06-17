@@ -1,6 +1,7 @@
 class Pack < ApplicationRecord
   has_many :user_packs, dependent: :destroy
   has_many :order_items
+  has_many :reviews
 
   monetize :price_cents
 

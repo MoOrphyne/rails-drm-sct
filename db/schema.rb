@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_171432) do
+ActiveRecord::Schema.define(version: 2019_06_17_012836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 2019_06_11_171432) do
     t.index ["infos"], name: "index_packs_on_infos", using: :gin
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.bigint "pack_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pack_id"], name: "index_reviews_on_pack_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "user_packs", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "pack_id"
@@ -77,6 +88,8 @@ ActiveRecord::Schema.define(version: 2019_06_11_171432) do
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "packs"
   add_foreign_key "orders", "users"
+  add_foreign_key "reviews", "packs"
+  add_foreign_key "reviews", "users"
   add_foreign_key "user_packs", "packs"
   add_foreign_key "user_packs", "users"
 end

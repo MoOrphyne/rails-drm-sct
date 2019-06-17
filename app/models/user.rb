@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :user_packs, dependent: :destroy
   has_many :packs, through: :user_packs
   has_many :orders
+  has_many :reviews
 
   mount_uploader :photo, PhotoUploader
 
