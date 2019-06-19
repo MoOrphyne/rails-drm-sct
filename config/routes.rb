@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       post 'download'
     end
 
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:create]
   end
 
   resources :reviews, only: [:destroy]
