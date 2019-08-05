@@ -39,6 +39,7 @@ class SubscriptionsController < ApplicationController
       days_until_due: 1,
     })
 
+    current_user.to_subscriber
     redirect_to profile_path
 
   rescue Stripe::CardError => e
