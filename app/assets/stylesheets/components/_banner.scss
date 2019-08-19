@@ -1,11 +1,14 @@
 .banner {
+  background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.3)), url("banner-image.jpg");
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 450px;
+  height: 65vh;
   color: rgb(255, 255, 255);
   background-size: cover;
   background-position: center;
+  border-bottom-right-radius: 80px;
 }
 
 .banner-content {
