@@ -1,0 +1,32 @@
+.all-featurette {
+  padding-left: 32px;
+}
+.featurette {
+  margin: 230px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+  border-radius: 80px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.featurette-text {
+  padding: 70px;
+}
+
+.featurette-image{
+  margin: 0;
+  padding: 0;
+  .img-fluid {
+    border-bottom-left-radius: 80px;
+    border-bottom-right-radius: 80px;
+  }
+}
+
+.featurette-divider {
+  background: $pink;
+  height: 8px;
+  width: 80%;
+  margin: auto;
+  transition: all .3s ease-in-out;
+  border-radius: 30px;
+}

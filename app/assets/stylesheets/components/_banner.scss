@@ -1,18 +1,23 @@
 .banner {
-  background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.3)), url("banner-image.jpg");
   width: 100%;
+  background-size: fit;
+  background-position: center;
+  height: 85vh;
+  border-bottom-right-radius: 80px;
   display: flex;
+  // background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.3)), url("../assets/images/banner-image.jpg");
   align-items: center;
   justify-content: center;
-  height: 65vh;
-  color: rgb(255, 255, 255);
-  background-size: cover;
-  background-position: center;
-  border-bottom-right-radius: 80px;
+  color: $light-gray;
 }
 
 .banner-content {
+  justify-content: center;
+  width: 50%;
   text-align: center;
+  .heading {
+    margin-bottom: 20px;
+  }
   p {
     font-weight: lighter;
     margin-bottom: 40px;
@@ -20,5 +25,5 @@
 }
 
 .slots {
-  margin-top: 40px;
+  margin-top: 10px;
 }

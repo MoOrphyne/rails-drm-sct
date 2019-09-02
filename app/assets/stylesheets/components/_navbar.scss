@@ -6,6 +6,7 @@
   position: fixed !important;
   z-index: 300;
   width: 85px;
+  overflow: hidden;
   height: 100%;
   top: 0;
   transition: width 0.4s ease-in-out;
@@ -81,7 +82,7 @@
 // link hover
 .side-nav {
   a:hover {
-    color: $blue;
+    color: $pink;
     text-decoration: none;
     font-weight: normal;
     font-size: 23px;

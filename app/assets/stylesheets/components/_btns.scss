@@ -14,9 +14,9 @@
   border: none;
   height: 70px;
   width: 130px;
-  background: $gradient-blue;
+  background: $pink;
   border-radius: 30px;
-  color: white;
+  color: $light-gray;
   transition: width 0.4s ease-in-out;
   box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
   i {
@@ -44,5 +44,6 @@
     opacity: 1;
     font-size: 24px;
     margin-bottom: 0;
+    font-weight: normal;
   }
 }

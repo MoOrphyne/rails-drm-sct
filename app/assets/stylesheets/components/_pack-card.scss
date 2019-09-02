@@ -1,13 +1,18 @@
+.recent-prod-card {
+  padding-left: 32px;
+}
 .pack-card {
-  height: 250px;
+  height: 350px;
   width: 250px;
-  border-radius: 7px;
-  margin-bottom: 15px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  border-radius: 20px;
+  margin-bottom: 32px;
+  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
   position: relative;
+  transition: all .3s ease-in-out;
+  overflow: hidden;
 }
 .pack-card-user {
   position: absolute;
@@ -17,29 +22,32 @@
   border-radius: 50%;
 }
 .pack-card-category {
+  transition: all .3s ease-in-out;
   color: white;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 15px;
+  text-align: center;
   text-transform: uppercase;
+  font-size: 25px;
+  opacity: 0;
+  // margin: auto;
+  width: 250px;
+  font-weight: bold;
 }
 .pack-card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  a {
-    color: white;
-  }
+  transition-delay: .1s;
+  transition: all .3s ease-in-out;
+  text-align: center;
+  opacity: 0;
+  // margin: auto;
+  width: 250px;
 }
-.pack-card-description h2 {
-  font-size: 24px;
-}
-.pack-card-description p {
-  font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
-}
+// .pack-card-description h2 {
+//   font-size: 24px;
+// }
+// .pack-card-description p {
+//   font-size: 14px;
+//   opacity: 0.7;
+//   font-weight: lighter;
+// }
 .pack-card-link {
   position: absolute;
   top: 0;
@@ -50,9 +58,9 @@
   background: black;
   opacity: 0;
 }
-.pack-card-link:hover {
-  opacity: 0.1;
-}
+// .pack-card-link:hover {
+//   opacity: 0.1;
+// }
 .new-tag {
   background-color: rgb(218, 85, 46);
   border-radius: 3px;
@@ -64,4 +72,52 @@
   right: 5px;
 }
 .grow { transition: all .2s ease-in-out; }
-.grow:hover { transform: scale(1.03); }
+
+.grow:hover {
+  transform: scale(1.03);
+}
+
+.hover-slider {
+  margin-left: 5%;
+    width: 0%;
+    height: 8px;
+    background: $pink;
+    background-position: center;
+    border-radius: 30px;
+    transition: all .3s ease-in-out;
+  }
+.overflow {
+  width: 0px;
+  height: 100%;
+  background: $gradient-blue;
+  border-radius: 20px;
+  transition: all .3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // margin: auto;
+}
+.recent-prod-card:hover {
+  .pack-card {
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, .3);
+    .overflow {
+      width: 250px;
+    }
+  }
+  .pack-card-category, .pack-card-description {
+    transition-delay: .2s;
+    opacity: 1;
+    width: 250px !important;
+  }
+  a {
+    text-decoration: none;
+  }
+  .hover-slider {
+    width: 90%;
+    height: 8px;
+    background-color: $pink;
+    border-radius: 30px;
+  }
+}

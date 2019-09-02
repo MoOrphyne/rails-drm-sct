@@ -8,3 +8,16 @@
 @import "forms";
 @import "pack-card";
 @import "select2";
+@import "recent-products";
+@import "featurette";
+
+body {
+  width: 100% !important;
+  max-width: 100%;
+  background: $gradient-light-gray;
+  background-size: cover;
+  background-position: center;
+}
+section {
+
+}
