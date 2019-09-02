@@ -1,5 +1,5 @@
 class FileUploader < CarrierWave::Uploader::Base
-  include CarrierWave::MiniMagick
+  include CarrierWave
   storage :fog
 
   process :save_content_type_and_size_in_model

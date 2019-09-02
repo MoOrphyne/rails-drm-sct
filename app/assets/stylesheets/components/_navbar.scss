@@ -1,41 +1,103 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+// main
+.navbar {
+  background: $gradient-gray;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  position: fixed !important;
+  z-index: 300;
+  width: 85px;
+  overflow: hidden;
+  height: 100%;
+  top: 0;
+  transition: width 0.4s ease-in-out;
 }
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.nav {
+  justify-content: center;
+  top: 0;
+  width: 100%;
 }
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+// links
+.navbar-brand {
+  margin: 0;
+  height: 98px;
+  font-weight: normal;
+  font-size: 28px;
+  color: $light-gray;
+  i {
+    font-size: 30px;
+  }
+  h3 {
+    display: none;
+    opacity: 0;
+  }
 }
-
-.navbar-wagon-item {
-  cursor: pointer;
-  padding: 0 20px;
+.navbar-item {
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 60px;
+  color: $light-gray;
+  font-size: 20px;
+  font-weight: lighter;
+  i {
+    font-size: 20px;
+  }
+  p {
+    margin-bottom: 0;
+    transition: display 1s ease-in-out;
+    display: none;
+    opacity: 0;
+  }
 }
-
-.navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
+// hover
+.navbar:hover {
+  width: 300px;
+  .nav {
+    justify-content: start;
+    padding-left: 7px;
+    .side-nav {
+      .navbar-brand {
+        i {
+          margin-right: 16px;
+        }
+        h3 {
+          display: block;
+          opacity: 1;
+        }
+      }
+      .navbar-item {
+        justify-content: start;
+        padding-left: 7px;
+        i {
+          margin-right: 16px;
+        }
+        p {
+          display: block;
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
-.navbar-wagon-link:hover {
-  color: #da552f;
-  text-decoration: none;
-}
-
-.navbar-collapse {
-  border-left: 1px solid rgba(30, 30, 30, 0.1)
-}
-
-.logo-navbar {
-  padding-right: 7px;
-  font-size: 18px;
-  font-weight: 400;
-  color: rgb(55, 60, 67);
-  &:hover {
-    color: rgb(55, 60, 67);
+// link hover
+.side-nav {
+  a:hover {
+    color: $pink;
     text-decoration: none;
+    font-weight: normal;
+    font-size: 23px;
+    transition: font-size 0.2s ease-in-out;
+    h3 {
+      transition: font-size 0.2s ease-in-out;
+      font-size: 30px;
+    }
+  }
+  .navbar-item:hover {
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, .03);
+    i {
+      transition: font-size 0.2s ease-in-out;
+      font-size: 22px;
+    }
   }
 }

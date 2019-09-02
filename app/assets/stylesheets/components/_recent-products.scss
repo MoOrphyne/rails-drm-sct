@@ -1,0 +1,36 @@
+.heading-height {
+  height: 120px;
+}
+
+.recent-products-heading {
+  color: $dark-gray;
+  align-items: baseline;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  height: 0;
+  .line {
+    font-size: 40px;
+    color: $pink;
+    position: relative;
+    bottom: 40px;
+    transition: all 0.3s ease-in-out;
+  }
+  h2 {
+    font-size: 40px;
+  }
+}
+
+.scroll {
+  .line {
+    transition-delay: 0.1s;
+    position: relative;
+    bottom: 0px;
+    color: $pink;
+    font-size: 40px;
+  }
+  height:40px;
+  // transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+  opacity: 1;
+  font-size: 40px;
+  color: $dark-gray;
+}

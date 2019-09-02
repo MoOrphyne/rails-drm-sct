@@ -10,3 +10,40 @@
     color: white;
   }
 }
+.home-button {
+  border: none;
+  height: 70px;
+  width: 130px;
+  background: $pink;
+  border-radius: 30px;
+  color: $light-gray;
+  transition: width 0.4s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
+  i {
+    position: relative;
+    top: 5px;
+    transition: opacity 0.4s ease-in-out, font-size 0.4s ease-in-out;
+    opacity: 1;
+    font-size: 45px;
+  }
+  p {
+    position: relative;
+    bottom: 37px;
+    font-size: 16px;
+    transition: opacity 0.4s ease-in-out, font-size 0.4s ease-in-out;
+    opacity: 0;
+  }
+}
+.home-button:hover {
+  width: 220px;
+  color: white;
+  i {
+    opacity: 0;
+  }
+  p {
+    opacity: 1;
+    font-size: 24px;
+    margin-bottom: 0;
+    font-weight: normal;
+  }
+}

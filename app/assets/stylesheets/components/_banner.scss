@@ -1,15 +1,23 @@
 .banner {
+  width: 100%;
+  background-size: fit;
+  background-position: center;
+  height: 85vh;
+  border-bottom-right-radius: 80px;
   display: flex;
+  // background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.3)), url("../assets/images/banner-image.jpg");
   align-items: center;
   justify-content: center;
-  height: 450px;
-  color: rgb(255, 255, 255);
-  background-size: cover;
-  background-position: center;
+  color: $light-gray;
 }
 
 .banner-content {
+  justify-content: center;
+  width: 50%;
   text-align: center;
+  .heading {
+    margin-bottom: 20px;
+  }
   p {
     font-weight: lighter;
     margin-bottom: 40px;
@@ -17,5 +25,5 @@
 }
 
 .slots {
-  margin-top: 40px;
+  margin-top: 10px;
 }

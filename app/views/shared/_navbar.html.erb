@@ -1,23 +1,38 @@
-<div class="navbar navbar-dark bg-dark box-shadow">
-  <div class="container d-flex justify-content-between">
-    <div class="nav-left d-flex">
-      <%= link_to 'Drum Society', root_path, class: 'navbar-brand d-flex align-items-center' %>
+<div class="navbar">
+  <div class="nav">
+
+    <div class="side-nav">
+      <%= link_to root_path, class: 'navbar-brand d-flex' do %>
+        <i class="fas fa-drum"></i><h3>Drum Society</h3>
       <% if current_user && !current_user.subscriber %>
         <%= link_to 'Join', sub_path, class: 'btn btn-primary my-2' %>
       <% end %>
-    </div>
-    <div class="right-nav">
+      <% end %>
+
       <% if current_user %>
         <% if current_user.admin %>
-          <%= link_to 'Admin', admin_path, class: "navbar-wagon-item navbar-wagon-link"  %>
+          <%= link_to admin_path, class: "navbar-item d-flex" do %>
+            <i class="fas fa-user-shield"></i><p>Admin</p>
+          <% end %>
         <% end %>
-        <%= link_to 'Shop', shop_packs_path, class: 'navbar-wagon-item navbar-wagon-link' %>
-        <%= link_to 'Dashboard', profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link") %>
+        <%= link_to shop_packs_path, class: 'navbar-item d-flex' do %>
+          <i class="fas fa-shopping-bag"></i><p>Shop</p>
+        <% end %>
+        <%= link_to profile_path, class: "navbar-item d-flex" do%>
+          <i class="fas fa-columns"></i><p>Dashboard</p>
+          <% end %>
+        <%= link_to(destroy_user_session_path, method: :delete, class: "navbar-item d-flex") do %>
+          <i class="fas fa-sign-out-alt"></i><p>Logout</p>
+        <% end %>
       <% else %>
-        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to('Register', new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link")  %>
+        <%= link_to new_user_session_path, class: "navbar-item d-flex" do %>
+        <i class="fas fa-sign-in-alt"></i><p>Login</p>
+        <% end %>
+        <%= link_to new_user_registration_path, class: "navbar-item d-flex" do %>
+          <i class="fas fa-user-plus"></i><p>Register</p>
+        <% end %>
       <% end %>
     </div>
+
   </div>
 </div>

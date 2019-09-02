@@ -1,4 +1,8 @@
 puts 'Destroying Packs'
+UserPack.destroy_all
+OrderItem.destroy_all
+Order.destroy_all
+Review.destroy_all
 Pack.destroy_all
 puts 'Destroying Users'
 User.destroy_all

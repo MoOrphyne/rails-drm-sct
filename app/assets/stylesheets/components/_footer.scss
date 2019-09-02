@@ -1,6 +1,7 @@
 .footer {
   padding: 80px 80px 10px 80px;
-  background-color: rgb(39, 39, 39);
+  background-color: $black;
+  border-top-right-radius: 80px;
   color: white;
   i {
     font-size: 25px;
@@ -9,4 +10,8 @@
 
 .copyright {
   margin-top: 60px;
+}
+
+.follow-us {
+  text-align: end;
 }
