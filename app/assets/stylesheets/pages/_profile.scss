@@ -1,11 +1,50 @@
 .user-infos {
-  margin-top: 100px;
-  margin-bottom: 150px;
+  position: relative;
+  margin-top: 320px;
+  margin-bottom: 0px;
+  background: $light-gray;
+  border-radius: 80px;
+  width: 55%;
+  align-items: center;
+  overflow: hidden;
+  margin-left: 45%;
+  justify-content: flex-end;
+  // border: 10px solid $pink;
+  // box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
 }
 .user-picture {
-  border-radius: 50%;
+  border-bottom-left-radius: 80px;
+  height: 290px;
 }
 .avatar {
   width: 300px;
   border-radius: 50%;
+}
+
+.list-group {
+    color: $dark-gray;
+    font-weight: 500;
+    text-align: end;
+  .list-group-item {
+    background: none;
+    border: none;
+    height: 45px;
+    a {
+      transition: all .2s ease-in-out;
+      color: $pink;
+    }
+  }
+}
+.list-group-item-success {
+  color: $green;
+}
+.list-group-item-primary {
+  color: $gray;
+}
+.list-group-item {
+  a:hover {
+    font-weight: 900;
+    text-decoration: none;
+    font-size: 17px;
+  }
 }

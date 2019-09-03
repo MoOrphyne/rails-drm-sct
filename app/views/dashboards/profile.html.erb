@@ -1,16 +1,6 @@
+<section class="profile-banner" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.2)), url('https://picsum.photos/id/529/1000/500');"></section>
 <div class="container">
-  <div class="row user-infos">
-    <div class="col-sm-6">
-      <div class="user-avatar">
-        <% if @user.photo.file.nil? %>
-          <%= image_tag "avatar-baf.png", height: 220, width: 220 %>
-        <% else %>
-          <%= cl_image_tag @user.photo, height: 220, width: 220, crop: :fill, class: "user-picture" %>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-sm-6">
-
+  <div class="row user-infos" data-aos="fade-left" data-aos-delay="300" data-aos-duration="700">
       <ul class="list-group">
         <li class="list-group-item"><%= @user.username %></li>
         <li class="list-group-item"><%= @user.email %></li>
@@ -27,11 +17,25 @@
         <li class="list-group-item"><%= link_to 'Update Profile', edit_user_registration_path %></li>
       </ul>
 
+    <div class="user-avatar">
+      <% if @user.photo.file.nil? %>
+        <%= image_tag "avatar-baf.png", class: "user-picture" %>
+      <% else %>
+        <%= cl_image_tag @user.photo, class: "user-picture" %>
+      <% end %>
     </div>
+
   </div>
 
 
-  <h3>My Products</h3>
+  <div class="my-products">
+    <div class="heading-height-my-products">
+      <div class="recent-products-heading d-flex" id="i-animation">
+        <i class="line fas fa-minus fa-rotate-90"></i>
+        <h2>My Products</h2>
+      </div>
+    </div>
+  </div>
 
   <div class="filter">
     <%= simple_form_for :query, url: profile_path, method: :get, html: {id: 'filter-form'}, remote: true do |f| %>
@@ -41,8 +45,6 @@
       <%= f.submit id: 'filter-submit', class: 'd-none' %>
     <% end %>
   </div>
-
-  <hr class="featurette-divider">
 
   <div class="products">
     <%= render 'profile_products', packs: @packs %>

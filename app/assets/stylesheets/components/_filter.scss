@@ -1,0 +1,14 @@
+.filter {
+  margin-bottom: 64px;
+  width: 100% !important;
+}
+.select2-container .select2-selection--single {
+  border: 1px solid $dark-gray !important;
+  border-radius: 30px !important;
+  background: $light-gray !important;
+  width: 100% !important;
+}
+.select2-selection__placeholder {
+  color: $dark-gray !important;
+  padding-left: 16px;
+}

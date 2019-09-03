@@ -1,7 +1,7 @@
 .footer {
   padding: 80px 80px 10px 80px;
   background-color: $black;
-  border-top-right-radius: 80px;
+  border-top-right-radius: 300px;
   color: white;
   i {
     font-size: 25px;
@@ -14,4 +14,23 @@
 
 .follow-us {
   text-align: end;
+}
+
+.list-inline {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+.list-inline-item {
+  width: 50px;
+  i {
+    transition: all .2s ease-in-out;
+    font-size: 40px;
+  }
+}
+.list-inline-item:hover {
+  i {
+    font-size: 45px;
+    color: $pink;
+  }
 }

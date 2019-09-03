@@ -3,7 +3,7 @@
   background-size: fit;
   background-position: center;
   height: 85vh;
-  border-bottom-right-radius: 80px;
+  border-bottom-right-radius: 300px;
   display: flex;
   // background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.3)), url("../assets/images/banner-image.jpg");
   align-items: center;
@@ -26,4 +26,14 @@
 
 .slots {
   margin-top: 10px;
+}
+
+.profile-banner {
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  top: 0;
+  border-bottom-right-radius: 300px;
+  background-size: cover;
+  background-position: center;
 }
