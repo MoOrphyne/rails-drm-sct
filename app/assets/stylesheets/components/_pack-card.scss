@@ -31,6 +31,7 @@
   // margin: auto;
   width: 250px;
   font-weight: bold;
+  padding: 0 16px;
 }
 .pack-card-description {
   transition-delay: .1s;
@@ -40,14 +41,7 @@
   // margin: auto;
   width: 250px;
 }
-// .pack-card-description h2 {
-//   font-size: 24px;
-// }
-// .pack-card-description p {
-//   font-size: 14px;
-//   opacity: 0.7;
-//   font-weight: lighter;
-// }
+
 .pack-card-link {
   position: absolute;
   top: 0;
@@ -58,9 +52,7 @@
   background: black;
   opacity: 0;
 }
-// .pack-card-link:hover {
-//   opacity: 0.1;
-// }
+
 .new-tag {
   background-color: rgb(218, 85, 46);
   border-radius: 3px;

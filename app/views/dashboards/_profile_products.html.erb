@@ -1,16 +1,19 @@
 <div class="row mb-5">
   <% packs.each do |pack| %>
-    <div class="col-md-3">
+    <div class="d-flex recent-prod-card">
       <%= link_to pack_path(pack) do  %>
-        <div class="pack-card grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=pack.photo_url%>);">
+        <div class="pack-card grow" style="background-image: url(<%=pack.photo_url%>);">
           <% if pack.new? %>
             <div class="new-tag">New</div>
           <% end %>
-          <div class="pack-card-category"><%= pack.title %></div>
-          <div class="pack-card-description">
-            <%= button_to 'Download', download_pack_path(pack), class: 'btn btn-primary my-2 download-btn' %>
+          <div class="overflow">
+            <div class="pack-card-category"><%= pack.title %></div>
+            <div class="pack-card-description">
+            <%= button_to 'Download', download_pack_path(pack), class: 'card-btn my-2' %>
+            </div>
           </div>
         </div>
+        <div class="hover-slider"></div>
       <% end %>
     </div>
   <% end %>

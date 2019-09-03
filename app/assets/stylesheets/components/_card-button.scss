@@ -1,0 +1,17 @@
+.card-btn {
+  border: 2px solid white;
+  padding: 0px 25px;
+  border-radius: 30px;
+  background: none;
+  color: white;
+  text-align: center;
+  font-size: 17px;
+  transition: all .3s ease-in-out;
+}
+
+.card-btn:hover {
+  background: white;
+  color: $pink;
+  padding: 0px 70px;
+  font-size: 18px;
+}

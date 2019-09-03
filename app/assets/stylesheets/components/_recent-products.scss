@@ -17,6 +17,7 @@
   }
   h2 {
     font-size: 40px;
+    font-weight: 400;
   }
 }
 
@@ -33,4 +34,12 @@
   opacity: 1;
   font-size: 40px;
   color: $dark-gray;
+}
+
+.my-products {
+  margin-top: 88px;
+  margin-bottom: 32px;
+}
+.heading-height-my-products {
+  height: 80px;
 }
